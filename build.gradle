@@ -1,0 +1,37 @@
+group 'junit5-prac'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.1'
+    }
+}
+
+apply plugin: 'org.junit.platform.gradle.plugin'
+apply plugin: 'java'
+
+junitPlatform {
+    filters {
+        tags {
+            include 'slow', 'very-slow'
+            exclude 'pay'
+        }
+    }
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile("org.junit.jupiter:junit-jupiter-api:5.0.1")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.1")
+
+    testCompile("junit:junit:4.12")
+    testCompile("org.junit.platform:junit-platform-runner:1.0.1")
+}

@@ -1,0 +1,21 @@
+# maven
+.target
+!maven-wrapper.jar
+.mvn/timing.properties
+
+# gradle
+.gradle
+/build/
+!gradle-wrapper.jar
+
+# eclipse
+.metadata
+.settings/
+.classpath
+.project
+
+# intellij
+*.iml
+.idea
+out/
+
